@@ -23,3 +23,27 @@ flex-wrap: wrap;
 justify-content: center;
 max-width: 70%;
 }
+
+#single-article-img {
+  max-width: 40%;
+}
+
+#topics-nav {
+  background-color: rgb(251, 225, 254);
+}
+
+header {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#login {
+  border: none;
+  background-color: white;
+}
+.topics-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+}

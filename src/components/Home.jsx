@@ -29,7 +29,7 @@ return (
     <nav id = "topics-nav">
     Choose a topic: 
     {topics.map((topic) => {
-        return <button onClick={() => handleTopicChange(topic.slug)} key = {topic.slug}>{topic.slug}</button>
+        return <button class="topics-button" onClick={() => handleTopicChange(topic.slug)} key = {topic.slug}>{topic.slug}</button>
     })}
     </nav>
     <ul className = 'articlesContainer'>
