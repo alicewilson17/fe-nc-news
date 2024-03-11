@@ -16,8 +16,16 @@ export const getArticles = (topicQuery) => {
 }
 
 export const getTopics = () => {
-    let url = '/topics'
+   const url = '/topics'
    return newsApi.get(url)
+    .then((response) => {
+        return response.data
+    })
+}
+
+export const getArticleById = (article_id) => {
+    const url = `/articles/${article_id}`
+    return newsApi.get(url)
     .then((response) => {
         return response.data
     })
