@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import {getArticleById} from "../api"
+import Loading from "./Loading"
+import Comments from "./Comments"
 
 
 const SingleArticle = () => {
@@ -9,33 +11,34 @@ const [article, setArticle] = useState({})
 const [isLoading, setIsLoading] = useState(true)
 
 
+
 useEffect(() => {
     getArticleById(article_id).then(({article}) => {
-        console.log(article.title)
         setArticle(article)
         setIsLoading(false)
     })
 }, [article_id])
 if (isLoading) {
-    return <p>Loading.....</p>
+    return <Loading/>
 }
 
 return (
+    <>
     <div id="single-article">
         <h2>{article.title}</h2>
         <p>
-        <b>Author: </b>{article.author}
+        Posted by {article.author} on {article.created_at.slice(0,10)}
         <br></br>
-        <b>Posted:</b> {article.created_at}
+        <button className="single-article-topic">{article.topic}</button>
         <br></br>
-        <b>Topic:</b> {article.topic}
+        This article has <b>{article.votes}</b> votes and <b>{article.comment_count}</b> comments
         <br></br>
-        <b>Votes:</b> {article.votes}
-        <br></br>
-        <b>Comments:</b> {article.comment_count}</p>
+        </p>
         <img id= "single-article-img" src={article.article_img_url}/>
-        <p>{article.body}</p>
+        <p id="article-body">{article.body}</p>
     </div>
+        <Comments article_id = {article_id}/>
+    </>
 )
 }
 

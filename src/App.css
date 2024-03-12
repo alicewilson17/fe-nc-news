@@ -29,7 +29,9 @@ max-width: 70%;
 }
 
 #topics-nav {
-  background-color: rgb(251, 225, 254);
+  background-color: rgb(119, 166, 168);
+  color: white;
+  font-size: 20px;
 }
 
 header {
@@ -46,4 +48,49 @@ header {
   background: none;
   border: none;
   font-size: 20px;
+}
+
+.single-article-topic, .topics-button {
+  background-color:rgb(253, 238, 202);
+  border: 1px solid black;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 10%;
+}
+
+.comment-card {
+  background-color: rgb(255, 251, 247);
+}
+
+#comment-author {
+  text-align: left;
+  font-weight:500;
+  margin-left: 10px;
+  padding-top: 10px;
+
+}
+
+#comment-body {
+  text-align: left;
+  padding: 10px;
+}
+
+#comment-date {
+  font-weight: 300;
+}
+
+#article-body {
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  color: rgb(25, 122, 146);
+  text-decoration: underline overline;
 }

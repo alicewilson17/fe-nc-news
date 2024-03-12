@@ -30,3 +30,11 @@ export const getArticleById = (article_id) => {
         return response.data
     })
 }
+
+export const getComments = (article_id) => {
+    const url = `/articles/${article_id}/comments`
+    return newsApi.get(url)
+    .then((response) => {
+        return response.data
+    })
+}
