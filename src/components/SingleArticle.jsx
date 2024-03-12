@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom"
 import {getArticleById} from "../api"
 import Loading from "./Loading"
 import Comments from "./Comments"
+import Votes from "./Votes"
+
 
 
 const SingleArticle = () => {
@@ -22,6 +24,8 @@ if (isLoading) {
     return <Loading/>
 }
 
+
+
 return (
     <>
     <div id="single-article">
@@ -31,11 +35,11 @@ return (
         <br></br>
         <button className="single-article-topic">{article.topic}</button>
         <br></br>
-        This article has <b>{article.votes}</b> votes and <b>{article.comment_count}</b> comments
-        <br></br>
+       
         </p>
         <img id= "single-article-img" src={article.article_img_url}/>
         <p id="article-body">{article.body}</p>
+        <Votes article_id = {article_id}/>
     </div>
         <Comments article_id = {article_id}/>
     </>

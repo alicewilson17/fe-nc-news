@@ -38,3 +38,22 @@ export const getComments = (article_id) => {
         return response.data
     })
 }
+
+export const upVoteArticle = (article_id) => {
+    const patchBody = {inc_votes: 1}
+    const url = `/articles/${article_id}`
+    return newsApi.patch(url, patchBody)
+    .then((response) => {
+        return response.data.article
+    })
+}
+
+
+export const downVoteArticle = (article_id) => {
+    const patchBody = {inc_votes: -1}
+    const url = `/articles/${article_id}`
+    return newsApi.patch(url, patchBody)
+    .then((response) => {
+        return response.data.article
+    })
+}
