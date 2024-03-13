@@ -39,7 +39,7 @@ return (
         </p>
         <img id= "single-article-img" src={article.article_img_url}/>
         <p id="article-body">{article.body}</p>
-        <Votes article_id = {article_id}/>
+        <Votes article_id = {article_id} articleVotes = {article.votes}/>
     </div>
         <Comments article_id = {article_id}/>
     </>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { getComments } from "../api"
-
+import CommentAdder from "./CommentAdder"
 
 const Comments = ({article_id}) => {
 const [comments, setComments] = useState([])
@@ -18,6 +18,7 @@ const voteOnComment = (comment_id) => {
 return (
     <div id = "comments">
         <h3>Comments</h3>
+        <CommentAdder setComments={setComments} article_id = {article_id}/>
         <ol className="comments-list">
             {comments.map((comment) => {
                 return (
