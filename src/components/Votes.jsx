@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react"
-import { getArticleById, upVoteArticle, downVoteArticle } from "../api"
+import {upVoteArticle, downVoteArticle } from "../api"
 
-const Votes = ({article_id}) => {
+const Votes = ({article_id, articleVotes}) => {
     const [votes, setVotes] = useState(0)
     const [isLiked, setIsLiked] = useState(false)
     const [isDisliked, setIsDisliked] = useState(false)
     
 useEffect(() => {
-    getArticleById(article_id).then(({article}) => {
-        setVotes(article.votes)
-    })
+        setVotes(articleVotes)
 }, [article_id])
 
     const upVoteOnArticle = (article_id) => {
