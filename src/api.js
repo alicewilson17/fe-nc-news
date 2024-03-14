@@ -23,6 +23,14 @@ return newsApi.get(url, {params: {topic: topic}})
 })
 }
 
+export const sortArticles = (sort_by, order) => {
+    const url = "/articles"
+return newsApi.get(url, {params: {sort_by: sort_by, order: order}})
+.then((response) => {
+    return response.data
+})
+}
+
 export const getTopics = () => {
    const url = '/topics'
    return newsApi.get(url)
