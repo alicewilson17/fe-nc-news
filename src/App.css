@@ -138,3 +138,23 @@ h1 {
   border: none;
   cursor: pointer;
 }
+
+#sort-by-order{
+  max-width: 50%;
+ display: flex;
+ justify-content: space-between;
+ margin: auto;
+ padding-top: 2%;
+ padding-bottom: 2%;
+ font-size: 18px;
+}
+
+#order, #sort-by {
+  font-size: 16px;;
+}
+
+#sort-by-button {
+  background-color: rgb(228, 249, 244);
+  font-size: 16px;
+  border-radius: 10%;
+}
