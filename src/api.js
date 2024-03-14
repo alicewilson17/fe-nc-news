@@ -15,6 +15,14 @@ export const getArticles = (topicQuery) => {
     })
 }
 
+export const getArticlesByTopic = (topic) => {
+const url = "/articles"
+return newsApi.get(url, {params: {topic: topic}})
+.then((response) => {
+    return response.data
+})
+}
+
 export const getTopics = () => {
    const url = '/topics'
    return newsApi.get(url)
