@@ -2,12 +2,14 @@ import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import {getArticles, getTopics} from "../api"
 import ArticleCard from "./ArticleCard"
+import Loading from "./Loading"
 
 
 const Home = () => {
 const [articles, setArticles] = useState([])
 const [topics, setTopics] = useState([])
 const [topicName, setTopicName] = useState('')
+const [isLoading, setIsLoading] = useState(true)
 
 useEffect(() => {
     getArticles(topicName)
@@ -17,11 +19,19 @@ setArticles(articles)
     getTopics()
     .then(({topics}) => {
         setTopics(topics)
+        setIsLoading(false)
     })
 }, [topicName])
 
+
+
 const handleTopicChange = (topicName) => {
     setTopicName(topicName)
+}
+
+
+if (isLoading) {
+    return <Loading/>
 }
 
 return (

@@ -66,3 +66,8 @@ export const postComment = (article_id, body, username) => {
         return response.data.comment
     })
 }
+
+export const deleteComment = (comment_id) => {
+const url = `/comments/${comment_id}`
+return newsApi.delete(url)
+}

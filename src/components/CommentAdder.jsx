@@ -17,7 +17,9 @@ postComment(article_id, newComment, username).then((newCommentFromApi) => {
     setComments((currComments) => {
         return [newCommentFromApi, ...currComments]
     })
-    return (<p>posted!</p>)
+})
+.catch((error) => {
+    console.log(error)
 })
 }
 
@@ -27,7 +29,6 @@ return (
         <input id="new-comment" multiline = "true" value = {newComment} placeholder = "Add a comment..."
         onChange={(event) => {
             setIsCommentTyped(false)
-            console.log(event.target.value)
             setNewComment(event.target.value)
             if(event.target.value !== "") {
             setIsCommentTyped(true)
