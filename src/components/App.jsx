@@ -6,6 +6,7 @@ import SingleArticle from './SingleArticle'
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import UserContext from '../contexts/User'
+import TopicsNav from './TopicsNav'
 
 function App() {
 const [loggedInUser, setLoggedInUser] = useState({
@@ -16,10 +17,11 @@ avatar_url: "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.j
   return (
     <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
     <Header/>
+    <TopicsNav/>
     <Routes>
       <Route path = '/' element = {<Home/>} />
       <Route path = '/articles/:article_id' element = {<SingleArticle/>}/>
-
+      <Route path = '/articles/topics/:topic' element = {<ArticlesForSingleTopic/>}/>
     </Routes>
     </UserContext.Provider>
   )
