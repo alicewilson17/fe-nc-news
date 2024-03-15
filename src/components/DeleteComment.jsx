@@ -5,6 +5,7 @@ import { deleteComment } from "../api"
 const DeleteComment = ({comment, setComments}) => {
 const {loggedInUser} = useContext(UserContext)
 const [username, setUsername] = useState(loggedInUser.username)
+const [error, setError] = useState("")
 
 const handleDelete = (event) => {
     event.preventDefault()
@@ -15,14 +16,18 @@ const handleDelete = (event) => {
         return newComments
     })
     deleteComment(comment.comment_id)
+    .then((setError(false)))
     .catch((err) => {
-        console.log(err)
+        setError(err.message)
+        console.log(err.message)
     })
 }
 
 if (comment.author === username) {
-return (
+return (<>
     <button id="delete-comment-button" onClick={handleDelete}>Delete</button>
+    </>
+    
 )
 }
 }

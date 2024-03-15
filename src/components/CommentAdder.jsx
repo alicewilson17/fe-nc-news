@@ -8,6 +8,7 @@ const {loggedInUser} = useContext(UserContext)
 const [newComment, setNewComment] = useState("")
 const [username, setUsername] = useState(loggedInUser.username)
 const [isCommentTyped, setIsCommentTyped] = useState(false)
+const [error, setError] = useState("")
 
 const handleSubmit = (event) => {
 event.preventDefault()
@@ -17,9 +18,10 @@ postComment(article_id, newComment, username).then((newCommentFromApi) => {
     setComments((currComments) => {
         return [newCommentFromApi, ...currComments]
     })
+    setError(false)
 })
-.catch((error) => {
-    console.log(error)
+.catch((err) => {
+    setError(err.message)
 })
 }
 
@@ -34,6 +36,7 @@ return (
             setIsCommentTyped(true)
             }
 }}></input>
+<p>{error === "" ? "" : error === false ? "Comment posted!" : `Oops! Something went wrong. Please try again. (${error})`}</p>
         <button id="add-comment-button" disabled = {!isCommentTyped} >Add</button>
     </form>
 )

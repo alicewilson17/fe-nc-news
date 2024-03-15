@@ -4,6 +4,8 @@ import {getArticleById} from "../api"
 import Loading from "./Loading"
 import Comments from "./Comments"
 import Votes from "./Votes"
+import ErrorPage from "./ErrorPage"
+import NotFoundPage from "./NotFoundPage"
 
 
 
@@ -11,15 +13,25 @@ const SingleArticle = () => {
 const {article_id} = useParams()
 const [article, setArticle] = useState({})
 const [isLoading, setIsLoading] = useState(true)
+const [error, setError] = useState(null)
 
 
 
 useEffect(() => {
-    getArticleById(article_id).then(({article}) => {
+    getArticleById(article_id)
+    .then(({article}) => {
         setArticle(article)
         setIsLoading(false)
     })
+    .catch((err) => {
+    setError(err.message)
+    })
 }, [article_id])
+
+if(error) {
+    return <ErrorPage error={error}/>
+}
+
 if (isLoading) {
     return <Loading/>
 }
