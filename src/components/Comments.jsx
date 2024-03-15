@@ -15,9 +15,7 @@ useEffect(() => {
     });
 }, [])
 
-const voteOnComment = (comment_id) => {
-    // will put this functionality in later
-}
+
 
 return (
     <div id = "comments">
@@ -27,10 +25,10 @@ return (
             {comments.map((comment) => {
                 return (
                     <div className="comment-card" key={comment.comment_id}>
-                        <p id="comment-author">{comment.author} <span id="comment-date">| {comment.created_at.slice(0,10)} |</span><span id="delete-comment-span"><DeleteComment setComments = {setComments} comment = {comment} /></span>
+                        <p id="comment-author">{comment.author} <span id="comment-date">| {comment.created_at.slice(0,10)} </span><span id="delete-comment-span"><DeleteComment setComments = {setComments} comment = {comment} /></span>
                     </p>
                         <p id="comment-body">{comment.body}</p>
-                        <button id = "comment-vote-button" onClick={() => voteOnComment(comment.comment_id)}> {comment.votes} <span aria-label="votes for this comment">👍</span></button>
+                        
                        
                     </div>
                 )

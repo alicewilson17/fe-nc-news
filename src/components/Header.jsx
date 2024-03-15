@@ -7,7 +7,7 @@ const Header = () => {
 return (
     <header>
     <Link to={'/'}><h1 id="header-home">NCnews</h1></Link>
-    <p>Logged in as {loggedInUser.username}</p>
+    <p>Welcome, <strong>{loggedInUser.username}</strong>!</p>
 </header>
 )
 }

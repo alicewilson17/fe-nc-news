@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react"
 import UserContext from "../contexts/User"
 import { deleteComment } from "../api"
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
 
 const DeleteComment = ({comment, setComments}) => {
 const {loggedInUser} = useContext(UserContext)
@@ -25,7 +27,7 @@ const handleDelete = (event) => {
 
 if (comment.author === username) {
 return (<>
-    <button id="delete-comment-button" onClick={handleDelete}>Delete</button>
+    <button id="delete-comment-button" onClick={handleDelete}><DeleteForeverIcon/></button>
     </>
     
 )
