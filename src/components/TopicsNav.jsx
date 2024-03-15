@@ -1,24 +1,18 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import {getTopics} from "../api"
-import Loading from "./Loading"
 
 const TopicsNav = () => {
     const [topics, setTopics] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
         getTopics()
         .then(({topics}) => {
             setTopics(topics)
-            setIsLoading(false)
         })
     }, [])
 
-    if (isLoading) {
-        return <Loading/>
-    }
     
     return (
         <>

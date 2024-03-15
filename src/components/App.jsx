@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import UserContext from '../contexts/User'
 import TopicsNav from './TopicsNav'
+import NotFoundPage from './NotFoundPage'
 
 function App() {
 const [loggedInUser, setLoggedInUser] = useState({
@@ -14,6 +15,7 @@ const [loggedInUser, setLoggedInUser] = useState({
 name: "Jess Jelly",
 avatar_url: "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
 })
+
   return (
     <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
     <Header/>
@@ -22,6 +24,7 @@ avatar_url: "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.j
       <Route path = '/' element = {<Home/>} />
       <Route path = '/articles/:article_id' element = {<SingleArticle/>}/>
       <Route path = '/articles/topics/:topic' element = {<ArticlesForSingleTopic/>}/>
+      <Route path="*" element={<NotFoundPage/>}/>
     </Routes>
     </UserContext.Provider>
   )
